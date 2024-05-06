@@ -1,0 +1,15 @@
+h1 {
+    background-color: red;
+    color: yellowgreen;
+    text-align: center;
+    width: fit-content;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.products li {
+    width: 300px;
+}
