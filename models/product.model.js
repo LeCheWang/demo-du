@@ -1,15 +1,28 @@
-const data = [
-    { id: 1, name: "Áo phông", img: "https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" },
-    { id: 2, name: "Quần jeans", img: "https://fastly.picsum.photos/id/2/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" },
-    { id: 7, name: "Giày sneakers", img: "https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" },
-    { id: 8, name: "Túi xách", img: "https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" },
-    { id: 9, name: "Mũ len", img: "https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" },
-    { id: 10, name: "Áo len", img: "https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" }
-];
+const mongoose = require('mongoose');
 
+const productSchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    img: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    description: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+    versionKey: false,
+  },
+);
 
-module.exports = {
-    getData: () => {
-        return data;
-    }
-}
+module.exports = mongoose.model('product', productSchema);
